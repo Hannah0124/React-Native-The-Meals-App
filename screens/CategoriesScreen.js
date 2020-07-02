@@ -9,6 +9,12 @@ const CategoriesScreen = props => {
       <Text>The Categories Screen!</Text>
       <Button title="Go to Meals!" onPress={() => {
         props.navigation.navigate({routeName: 'CategoryMeals'}); // routeName should be the same as one of keys from MealsNavigator.js
+
+        // same as above
+        // props.navigation.push('CategoryMeals');
+
+        // 'replace' => stack will be empty - e.g. (log in screen) After logging in, a user should not be able to go back to the previous log in page
+        // props.navigation.replace('CategoryMeals'); 
       }} />
     </View>
   )
