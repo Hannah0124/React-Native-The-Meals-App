@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 const CategoriesScreen = props => {
   return (
@@ -9,7 +9,7 @@ const CategoriesScreen = props => {
   )
 };
 
-const styles = StylesSheet.create({
+const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 const MealDetailsScreen = props => {
   return (
@@ -9,7 +9,7 @@ const MealDetailsScreen = props => {
   );
 };
 
-const styles = StylesSheet.create({
+const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: 'center',
