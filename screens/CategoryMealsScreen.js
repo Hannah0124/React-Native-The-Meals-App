@@ -1,28 +1,36 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
 
-import { CATEGORIES } from '../data/dummy-data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 
 const CategoryMealsScreen = props => {
+
+  const renderMealItem = itemData => {
+    return (
+      <View>
+        <Text>{itemData.item.title}</Text>
+      </View>
+    );
+  };
+
   const catId = props.navigation.getParam('categoryId'); // from CategoriesScreen.js
 
-  const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
+  // TODO
+  // const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
+  const displayedMeals = MEALS.filter(
+    meal => meal.categoryIds.indexOf(catId) >= 0
+  );
 
   return (
     <View style={styles.screen}>
-      <Text>The Category Meal Screen!</Text>
-      <Text>{selectedCategory.title}</Text>
-      <Button title="Go to Details!" onPress={() => {
-        props.navigation.navigate({routeName: 'MealDetail'});
-      }} />
-      <Button title="Go Back" onPress={() => {
-        // props.navigation.goBack();
-
-        // Same as above
-        props.navigation.pop();
-      }} />
+      <FlatList 
+        data={displayedMeals} 
+        keyExtractor={(item, index) => item.id}
+        renderItem={renderMealItem}
+        style={{ width: '100%' }}
+      />
     </View>
-  )
+  );
 };
 
 // Important to update the header!
