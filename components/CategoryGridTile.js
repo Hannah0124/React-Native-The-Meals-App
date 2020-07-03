@@ -1,30 +1,26 @@
 import React from 'react';
-import { 
-  StyleSheet,
+import {
+  TouchableOpacity,
   View,
   Text,
-  TouchableOpacity,
+  StyleSheet,
   Platform,
   TouchableNativeFeedback
 } from 'react-native';
 
-const CategoryGridTitle = props => {
+const CategoryGridTile = props => {
   let TouchableCmp = TouchableOpacity;
 
-  if (Platform.OS === 'andoroid' && Platform.Version >= 21) {
+  if (Platform.OS === 'android' && Platform.Version >= 21) {
     TouchableCmp = TouchableNativeFeedback;
   }
   return (
     <View style={styles.gridItem}>
-      <TouchableCmp 
-        style={{flex: 1}}
-        onPress={props.onSelect}
-      >
-        <View style={{ ...styles.container, ...{backgroundColor: props.color}}}>
-          <Text 
-            style={styles.title}
-            numberOfLines={2}
-          >
+      <TouchableCmp style={{ flex: 1 }} onPress={props.onSelect}>
+        <View
+          style={{ ...styles.container, ...{ backgroundColor: props.color } }}
+        >
+          <Text style={styles.title} numberOfLines={2}>
             {props.title}
           </Text>
         </View>
@@ -44,8 +40,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 10,
-    shadowColor: '#000',
+    shadowColor: 'black',
     shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
     shadowRadius: 10,
     elevation: 3, // for Android
     padding: 15,
@@ -54,9 +51,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'open-sans-bold',
-    fontSize: 21,
+    fontSize: 22,
     textAlign: 'right'
   }
 });
 
-export default CategoryGridTitle;
+export default CategoryGridTile;
