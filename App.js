@@ -9,7 +9,7 @@ import MealsNavigator from './navigation/MealsNavigator';
 enableScreens ();
 
 const fetchFonts = () => {
-  Font.loadAsync({
+  return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
   });
@@ -24,7 +24,7 @@ export default function App() {
     return (
       <AppLoading 
         startAsync={fetchFonts} 
-        onFinish={() => setFontLoaded(true)} 
+        onFinish={() => setFontLoaded(true)}
       />
     );
   };
