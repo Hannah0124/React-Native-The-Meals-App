@@ -6,12 +6,9 @@ import {
   Button,
   FlatList,
   TouchableOpacity,
-  Platform  // API
 } from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data'; // array
-import Colors from '../constants/Colors';
-
 
 const CategoriesScreen = props => {
   // console.log('props ', props);
@@ -54,11 +51,7 @@ const CategoriesScreen = props => {
 
 // Important to update the header!
 CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meal Categories',
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
-  },
-  headerTintColor: Platform.OS === 'android' ? '#fff' : Colors.primaryColor
+  headerTitle: 'Meal Categories'
 };
 
 
