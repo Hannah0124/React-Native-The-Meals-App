@@ -5,13 +5,13 @@ class Meal {
     title,
     affordability,
     complexity,
-    imageUrl
+    imageUrl,
     duration,
     ingredients,
     steps,
     isGlutenFree,
     isVegan,
-    isVegetarian
+    isVegetarian,
     isLactoseFree
     ) {
       this.id = id;

@@ -20,10 +20,10 @@ const MealsNavigator = createStackNavigator({
   },
   MealDetail: MealDetailScreen
 }, {
-  mode: 'modal', // default animation?
+  // mode: 'modal', // default animation?
 
   // initialRouteName: 'MealDetail', // initial route setting!
-  
+
   // This second parameter will apply everywhere (important!)
   defaultNavigationOptions: {
     headerStyle: {
