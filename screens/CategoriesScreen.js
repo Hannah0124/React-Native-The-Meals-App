@@ -1,19 +1,36 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button, FlatList } from 'react-native';
+import { 
+  StyleSheet,
+  View,
+  Text,
+  Button,
+  FlatList,
+  TouchableOpacity,
+  Platform  // API
+} from 'react-native';
 
 import { CATEGORIES } from '../data/dummy-data'; // array
+import Colors from '../constants/Colors';
 
-
-const renderGridItem = (itemData) => {
-  return (
-    <View style={styles.gridItem}>
-      <Text>{itemData.item.title}</Text>
-    </View>
-  );
-};
 
 const CategoriesScreen = props => {
   // console.log('props ', props);
+
+  const renderGridItem = (itemData) => {
+    return (
+      <TouchableOpacity 
+        style={styles.gridItem}
+        onPress={() => {
+          props.navigation.navigate({routeName: 'CategoryMeals'});
+        }}
+      >
+        <View >
+          <Text>{itemData.item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
 
   return (
     <FlatList 
@@ -25,18 +42,14 @@ const CategoriesScreen = props => {
   )
 };
 
-{/* <View style={styles.screen}>
-  <Text>The Categories Screen!</Text>
-  <Button title="Go to Meals!" onPress={() => {
-    props.navigation.navigate({routeName: 'CategoryMeals'}); // routeName should be the same as one of keys from MealsNavigator.js
+CategoriesScreen.navigationOptions = {
+  headerTitle: 'Meal Categories',
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+  },
+  headerTintColor: Platform.OS === 'android' ? '#fff' : Colors.primaryColor
+};
 
-    // same as above
-    // props.navigation.push('CategoryMeals');
-
-    // 'replace' => stack will be empty - e.g. (log in screen) After logging in, a user should not be able to go back to the previous log in page
-    // props.navigation.replace('CategoryMeals'); 
-  }} />
-</View>  */}
 
 const styles = StyleSheet.create({
   screen: {
@@ -52,3 +65,18 @@ const styles = StyleSheet.create({
 });
 
 export default CategoriesScreen;
+
+
+
+{/* <View style={styles.screen}>
+  <Text>The Categories Screen!</Text>
+  <Button title="Go to Meals!" onPress={() => {
+    props.navigation.navigate({routeName: 'CategoryMeals'}); // routeName should be the same as one of keys from MealsNavigator.js
+
+    // same as above
+    // props.navigation.push('CategoryMeals');
+
+    // 'replace' => stack will be empty - e.g. (log in screen) After logging in, a user should not be able to go back to the previous log in page
+    // props.navigation.replace('CategoryMeals'); 
+  }} />
+</View>  */}
