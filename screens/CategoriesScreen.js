@@ -52,6 +52,7 @@ const CategoriesScreen = props => {
   )
 };
 
+// Important to update the header!
 CategoriesScreen.navigationOptions = {
   headerTitle: 'Meal Categories',
   headerStyle: {
